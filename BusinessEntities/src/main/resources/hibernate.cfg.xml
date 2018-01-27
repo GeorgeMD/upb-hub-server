@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/upb_orar</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <mapping class="srv.entities.CourseEntity"/>
+    <mapping class="srv.entities.GroupEntity"/>
+    <mapping class="srv.entities.LocationEntity"/>
+    <mapping class="srv.entities.MessageEntity"/>
+    <mapping class="srv.entities.ProfCourseEntity"/>
+    <mapping class="srv.entities.ProfessorEntity"/>
+    <mapping class="srv.entities.ScheduleEntity"/>
+    <mapping class="srv.entities.StudentEntity"/>
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>
