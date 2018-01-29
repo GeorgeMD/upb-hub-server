@@ -1,6 +1,7 @@
 package srv.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * @author GeorgeMD
@@ -9,7 +10,9 @@ import javax.persistence.*;
 @Table(name = "ProfCourse", schema = "upb_orar", catalog = "")
 public class ProfCourseEntity {
     private int profCourseId;
+    private ProfessorEntity professorByProfId;
     private CourseEntity courseByCourseId;
+    private Collection<ScheduleEntity> schedulesByProfCourseId;
 
     @Id
     @Column(name = "ProfCourseId")
@@ -39,6 +42,16 @@ public class ProfCourseEntity {
     }
 
     @ManyToOne
+    @JoinColumn(name = "ProfId", referencedColumnName = "ProfessorId", nullable = false)
+    public ProfessorEntity getProfessorByProfId() {
+        return professorByProfId;
+    }
+
+    public void setProfessorByProfId(ProfessorEntity professorByProfId) {
+        this.professorByProfId = professorByProfId;
+    }
+
+    @ManyToOne
     @JoinColumn(name = "CourseId", referencedColumnName = "CourseId", nullable = false)
     public CourseEntity getCourseByCourseId() {
         return courseByCourseId;
@@ -46,5 +59,14 @@ public class ProfCourseEntity {
 
     public void setCourseByCourseId(CourseEntity courseByCourseId) {
         this.courseByCourseId = courseByCourseId;
+    }
+
+    @OneToMany(mappedBy = "profCourseByProfCourseId")
+    public Collection<ScheduleEntity> getSchedulesByProfCourseId() {
+        return schedulesByProfCourseId;
+    }
+
+    public void setSchedulesByProfCourseId(Collection<ScheduleEntity> schedulesByProfCourseId) {
+        this.schedulesByProfCourseId = schedulesByProfCourseId;
     }
 }

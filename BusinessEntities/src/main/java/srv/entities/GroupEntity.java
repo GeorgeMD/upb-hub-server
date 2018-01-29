@@ -1,16 +1,20 @@
 package srv.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * @author GeorgeMD
  */
 @Entity
-@Table(name = "\"Group\"", schema = "upb_orar", catalog = "")
+@Table(name = "\"Group\"", schema = "upb_orar")
 public class GroupEntity {
     private int groupId;
     private String number;
     private int year;
+    private Collection<MessageEntity> messagesByGroupId;
+    private Collection<ScheduleEntity> schedulesByGroupId;
+    private Collection<StudentEntity> studentsByGroupId;
 
     @Id
     @Column(name = "GroupId")
@@ -62,5 +66,32 @@ public class GroupEntity {
         result = 31 * result + (number != null ? number.hashCode() : 0);
         result = 31 * result + year;
         return result;
+    }
+
+    @OneToMany(mappedBy = "groupByGroupId")
+    public Collection<MessageEntity> getMessagesByGroupId() {
+        return messagesByGroupId;
+    }
+
+    public void setMessagesByGroupId(Collection<MessageEntity> messagesByGroupId) {
+        this.messagesByGroupId = messagesByGroupId;
+    }
+
+    @OneToMany(mappedBy = "groupByGroupId")
+    public Collection<ScheduleEntity> getSchedulesByGroupId() {
+        return schedulesByGroupId;
+    }
+
+    public void setSchedulesByGroupId(Collection<ScheduleEntity> schedulesByGroupId) {
+        this.schedulesByGroupId = schedulesByGroupId;
+    }
+
+    @OneToMany(mappedBy = "groupByGroupId")
+    public Collection<StudentEntity> getStudentsByGroupId() {
+        return studentsByGroupId;
+    }
+
+    public void setStudentsByGroupId(Collection<StudentEntity> studentsByGroupId) {
+        this.studentsByGroupId = studentsByGroupId;
     }
 }

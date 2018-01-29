@@ -7,11 +7,12 @@ import java.sql.Timestamp;
  * @author GeorgeMD
  */
 @Entity
-@Table(name = "Message", schema = "upb_orar", catalog = "")
+@Table(name = "Message", schema = "upb_orar")
 public class MessageEntity {
     private int messageId;
     private Timestamp timestamp;
     private String text;
+    private StudentEntity studentByStudentId;
     private GroupEntity groupByGroupId;
 
     @Id
@@ -65,6 +66,16 @@ public class MessageEntity {
         result = 31 * result + (timestamp != null ? timestamp.hashCode() : 0);
         result = 31 * result + (text != null ? text.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "StudentId", referencedColumnName = "StudentId")
+    public StudentEntity getStudentByStudentId() {
+        return studentByStudentId;
+    }
+
+    public void setStudentByStudentId(StudentEntity studentByStudentId) {
+        this.studentByStudentId = studentByStudentId;
     }
 
     @ManyToOne

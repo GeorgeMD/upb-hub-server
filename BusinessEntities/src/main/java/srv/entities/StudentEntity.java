@@ -1,12 +1,13 @@
 package srv.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * @author GeorgeMD
  */
 @Entity
-@Table(name = "Student", schema = "upb_orar", catalog = "")
+@Table(name = "Student", schema = "upb_orar")
 public class StudentEntity {
     private int studentId;
     private String firstName;
@@ -14,6 +15,7 @@ public class StudentEntity {
     private String email;
     private String phone;
     private String password;
+    private Collection<MessageEntity> messagesByStudentId;
     private GroupEntity groupByGroupId;
 
     @Id
@@ -105,6 +107,15 @@ public class StudentEntity {
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "studentByStudentId")
+    public Collection<MessageEntity> getMessagesByStudentId() {
+        return messagesByStudentId;
+    }
+
+    public void setMessagesByStudentId(Collection<MessageEntity> messagesByStudentId) {
+        this.messagesByStudentId = messagesByStudentId;
     }
 
     @ManyToOne

@@ -1,12 +1,13 @@
 package srv.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * @author GeorgeMD
  */
 @Entity
-@Table(name = "Professor", schema = "upb_orar", catalog = "")
+@Table(name = "Professor", schema = "upb_orar")
 public class ProfessorEntity {
     private int professorId;
     private String firstName;
@@ -15,6 +16,7 @@ public class ProfessorEntity {
     private String phone;
     private String title;
     private byte active;
+    private Collection<ProfCourseEntity> profCoursesByProfessorId;
 
     @Id
     @Column(name = "ProfessorId")
@@ -116,5 +118,14 @@ public class ProfessorEntity {
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (int) active;
         return result;
+    }
+
+    @OneToMany(mappedBy = "professorByProfId")
+    public Collection<ProfCourseEntity> getProfCoursesByProfessorId() {
+        return profCoursesByProfessorId;
+    }
+
+    public void setProfCoursesByProfessorId(Collection<ProfCourseEntity> profCoursesByProfessorId) {
+        this.profCoursesByProfessorId = profCoursesByProfessorId;
     }
 }

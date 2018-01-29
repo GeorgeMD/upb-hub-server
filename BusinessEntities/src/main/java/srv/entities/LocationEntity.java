@@ -1,18 +1,20 @@
 package srv.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * @author GeorgeMD
  */
 @Entity
-@Table(name = "Location", schema = "upb_orar", catalog = "")
+@Table(name = "Location", schema = "upb_orar")
 public class LocationEntity {
     private int locationId;
     private String name;
     private int capacity;
     private byte active;
     private String address;
+    private Collection<ScheduleEntity> schedulesByLocationId;
 
     @Id
     @Column(name = "LocationId")
@@ -88,5 +90,14 @@ public class LocationEntity {
         result = 31 * result + (int) active;
         result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "locationByLocationId")
+    public Collection<ScheduleEntity> getSchedulesByLocationId() {
+        return schedulesByLocationId;
+    }
+
+    public void setSchedulesByLocationId(Collection<ScheduleEntity> schedulesByLocationId) {
+        this.schedulesByLocationId = schedulesByLocationId;
     }
 }
