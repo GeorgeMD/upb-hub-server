@@ -12,9 +12,9 @@ public class GroupEntity {
     private int groupId;
     private String number;
     private int year;
-    private Collection<MessageEntity> messagesByGroupId;
-    private Collection<ScheduleEntity> schedulesByGroupId;
-    private Collection<StudentEntity> studentsByGroupId;
+    private Collection<MessageEntity> messages;
+    private Collection<ScheduleEntity> schedules;
+    private Collection<StudentEntity> students;
 
     @Id
     @Column(name = "GroupId")
@@ -68,30 +68,30 @@ public class GroupEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "groupByGroupId")
-    public Collection<MessageEntity> getMessagesByGroupId() {
-        return messagesByGroupId;
+    @OneToMany(mappedBy = "group")
+    public Collection<MessageEntity> getMessages() {
+        return messages;
     }
 
-    public void setMessagesByGroupId(Collection<MessageEntity> messagesByGroupId) {
-        this.messagesByGroupId = messagesByGroupId;
-    }
-
-    @OneToMany(mappedBy = "groupByGroupId")
-    public Collection<ScheduleEntity> getSchedulesByGroupId() {
-        return schedulesByGroupId;
-    }
-
-    public void setSchedulesByGroupId(Collection<ScheduleEntity> schedulesByGroupId) {
-        this.schedulesByGroupId = schedulesByGroupId;
+    public void setMessages(Collection<MessageEntity> messages) {
+        this.messages = messages;
     }
 
     @OneToMany(mappedBy = "groupByGroupId")
-    public Collection<StudentEntity> getStudentsByGroupId() {
-        return studentsByGroupId;
+    public Collection<ScheduleEntity> getSchedules() {
+        return schedules;
     }
 
-    public void setStudentsByGroupId(Collection<StudentEntity> studentsByGroupId) {
-        this.studentsByGroupId = studentsByGroupId;
+    public void setSchedules(Collection<ScheduleEntity> schedules) {
+        this.schedules = schedules;
+    }
+
+    @OneToMany(mappedBy = "group")
+    public Collection<StudentEntity> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Collection<StudentEntity> students) {
+        this.students = students;
     }
 }

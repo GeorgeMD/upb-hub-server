@@ -12,8 +12,8 @@ public class MessageEntity {
     private int messageId;
     private Timestamp timestamp;
     private String text;
-    private StudentEntity studentByStudentId;
-    private GroupEntity groupByGroupId;
+    private StudentEntity student;
+    private GroupEntity group;
 
     @Id
     @Column(name = "MessageId")
@@ -70,21 +70,21 @@ public class MessageEntity {
 
     @ManyToOne
     @JoinColumn(name = "StudentId", referencedColumnName = "StudentId")
-    public StudentEntity getStudentByStudentId() {
-        return studentByStudentId;
+    public StudentEntity getStudent() {
+        return student;
     }
 
-    public void setStudentByStudentId(StudentEntity studentByStudentId) {
-        this.studentByStudentId = studentByStudentId;
+    public void setStudent(StudentEntity student) {
+        this.student = student;
     }
 
     @ManyToOne
     @JoinColumn(name = "GroupId", referencedColumnName = "GroupId")
-    public GroupEntity getGroupByGroupId() {
-        return groupByGroupId;
+    public GroupEntity getGroup() {
+        return group;
     }
 
-    public void setGroupByGroupId(GroupEntity groupByGroupId) {
-        this.groupByGroupId = groupByGroupId;
+    public void setGroup(GroupEntity group) {
+        this.group = group;
     }
 }

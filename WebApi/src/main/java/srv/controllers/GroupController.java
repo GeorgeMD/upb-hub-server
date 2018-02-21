@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import srv.entities.GroupEntity;
+import srv.models.GroupModel;
 import srv.services.GroupService;
 
 /**
@@ -14,11 +14,14 @@ import srv.services.GroupService;
 @RestController
 public class GroupController {
 
-    @Autowired
     private GroupService groupService;
 
+    public GroupController(GroupService groupService) {
+        this.groupService = groupService;
+    }
+
     @GetMapping(path = "/group", params = "id")
-    public @ResponseBody GroupEntity getById(@RequestParam(name = "id") int id) {
-        return groupService.getById(id);
+    public GroupModel getById(@RequestParam(name = "id") int id) {
+        return new GroupModel(groupService.getById(id));
     }
 }

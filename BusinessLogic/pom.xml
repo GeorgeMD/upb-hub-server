@@ -24,12 +24,12 @@
         <dependency>
             <groupId>com.orarupb</groupId>
             <artifactId>business-entities</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.orarupb</groupId>
             <artifactId>data-access</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.2-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

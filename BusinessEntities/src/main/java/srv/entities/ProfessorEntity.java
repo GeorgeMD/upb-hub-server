@@ -15,8 +15,7 @@ public class ProfessorEntity {
     private String email;
     private String phone;
     private String title;
-    private byte active;
-    private Collection<ProfCourseEntity> profCoursesByProfessorId;
+    private Collection<ProfCourseEntity> profCourses;
 
     @Id
     @Column(name = "ProfessorId")
@@ -78,16 +77,6 @@ public class ProfessorEntity {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "Active")
-    public byte getActive() {
-        return active;
-    }
-
-    public void setActive(byte active) {
-        this.active = active;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -96,7 +85,6 @@ public class ProfessorEntity {
         ProfessorEntity that = (ProfessorEntity) o;
 
         if (professorId != that.professorId) return false;
-        if (active != that.active) return false;
         if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null)
             return false;
         if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null)
@@ -116,16 +104,15 @@ public class ProfessorEntity {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (int) active;
         return result;
     }
 
-    @OneToMany(mappedBy = "professorByProfId")
-    public Collection<ProfCourseEntity> getProfCoursesByProfessorId() {
-        return profCoursesByProfessorId;
+    @OneToMany(mappedBy = "professor")
+    public Collection<ProfCourseEntity> getProfCourses() {
+        return profCourses;
     }
 
-    public void setProfCoursesByProfessorId(Collection<ProfCourseEntity> profCoursesByProfessorId) {
-        this.profCoursesByProfessorId = profCoursesByProfessorId;
+    public void setProfCourses(Collection<ProfCourseEntity> profCourses) {
+        this.profCourses = profCourses;
     }
 }

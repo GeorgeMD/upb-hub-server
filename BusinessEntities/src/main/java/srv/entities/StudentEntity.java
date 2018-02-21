@@ -15,8 +15,8 @@ public class StudentEntity {
     private String email;
     private String phone;
     private String password;
-    private Collection<MessageEntity> messagesByStudentId;
-    private GroupEntity groupByGroupId;
+    private Collection<MessageEntity> messages;
+    private GroupEntity group;
 
     @Id
     @Column(name = "StudentId")
@@ -83,16 +83,16 @@ public class StudentEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        StudentEntity that = (StudentEntity) o;
+        StudentEntity entity = (StudentEntity) o;
 
-        if (studentId != that.studentId) return false;
-        if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null)
+        if (studentId != entity.studentId) return false;
+        if (firstName != null ? !firstName.equals(entity.firstName) : entity.firstName != null)
             return false;
-        if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null)
+        if (lastName != null ? !lastName.equals(entity.lastName) : entity.lastName != null)
             return false;
-        if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (phone != null ? !phone.equals(that.phone) : that.phone != null) return false;
-        if (password != null ? !password.equals(that.password) : that.password != null)
+        if (email != null ? !email.equals(entity.email) : entity.email != null) return false;
+        if (phone != null ? !phone.equals(entity.phone) : entity.phone != null) return false;
+        if (password != null ? !password.equals(entity.password) : entity.password != null)
             return false;
 
         return true;
@@ -109,22 +109,22 @@ public class StudentEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "studentByStudentId")
-    public Collection<MessageEntity> getMessagesByStudentId() {
-        return messagesByStudentId;
+    @OneToMany(mappedBy = "student")
+    public Collection<MessageEntity> getMessages() {
+        return messages;
     }
 
-    public void setMessagesByStudentId(Collection<MessageEntity> messagesByStudentId) {
-        this.messagesByStudentId = messagesByStudentId;
+    public void setMessages(Collection<MessageEntity> messages) {
+        this.messages = messages;
     }
 
     @ManyToOne
     @JoinColumn(name = "GroupId", referencedColumnName = "GroupId", nullable = false)
-    public GroupEntity getGroupByGroupId() {
-        return groupByGroupId;
+    public GroupEntity getGroup() {
+        return group;
     }
 
-    public void setGroupByGroupId(GroupEntity groupByGroupId) {
-        this.groupByGroupId = groupByGroupId;
+    public void setGroup(GroupEntity group) {
+        this.group = group;
     }
 }

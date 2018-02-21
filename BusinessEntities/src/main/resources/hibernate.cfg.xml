@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:mysql://localhost:39137/upb_orar</property>
+    <property name="connection.url">jdbc:mysql://localhost:41543/upb_orar</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
       <mapping class="srv.entities.CourseEntity"/>
     <mapping class="srv.entities.GroupEntity"/>
@@ -14,8 +14,9 @@
     <mapping class="srv.entities.ProfessorEntity"/>
     <mapping class="srv.entities.ScheduleEntity"/>
     <mapping class="srv.entities.StudentEntity"/>
+    <mapping class="srv.entities.SettingsEntity"/>
 
-    <!-- DB schema will be updated if needed -->
+      <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>
 </hibernate-configuration>

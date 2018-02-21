@@ -7,12 +7,12 @@ import java.util.Collection;
  * @author GeorgeMD
  */
 @Entity
-@Table(name = "ProfCourse", schema = "upb_orar", catalog = "")
+@Table(name = "ProfCourse", schema = "upb_orar")
 public class ProfCourseEntity {
     private int profCourseId;
-    private ProfessorEntity professorByProfId;
-    private CourseEntity courseByCourseId;
-    private Collection<ScheduleEntity> schedulesByProfCourseId;
+    private ProfessorEntity professor;
+    private CourseEntity course;
+    private Collection<ScheduleEntity> schedules;
 
     @Id
     @Column(name = "ProfCourseId")
@@ -43,30 +43,30 @@ public class ProfCourseEntity {
 
     @ManyToOne
     @JoinColumn(name = "ProfId", referencedColumnName = "ProfessorId", nullable = false)
-    public ProfessorEntity getProfessorByProfId() {
-        return professorByProfId;
+    public ProfessorEntity getProfessor() {
+        return professor;
     }
 
-    public void setProfessorByProfId(ProfessorEntity professorByProfId) {
-        this.professorByProfId = professorByProfId;
+    public void setProfessor(ProfessorEntity professor) {
+        this.professor = professor;
     }
 
     @ManyToOne
     @JoinColumn(name = "CourseId", referencedColumnName = "CourseId", nullable = false)
-    public CourseEntity getCourseByCourseId() {
-        return courseByCourseId;
+    public CourseEntity getCourse() {
+        return course;
     }
 
-    public void setCourseByCourseId(CourseEntity courseByCourseId) {
-        this.courseByCourseId = courseByCourseId;
+    public void setCourse(CourseEntity course) {
+        this.course = course;
     }
 
     @OneToMany(mappedBy = "profCourseByProfCourseId")
-    public Collection<ScheduleEntity> getSchedulesByProfCourseId() {
-        return schedulesByProfCourseId;
+    public Collection<ScheduleEntity> getSchedules() {
+        return schedules;
     }
 
-    public void setSchedulesByProfCourseId(Collection<ScheduleEntity> schedulesByProfCourseId) {
-        this.schedulesByProfCourseId = schedulesByProfCourseId;
+    public void setSchedules(Collection<ScheduleEntity> schedules) {
+        this.schedules = schedules;
     }
 }

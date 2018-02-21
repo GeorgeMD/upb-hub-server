@@ -14,5 +14,6 @@
         <module>BusinessLogic</module>
         <module>DataAccess</module>
         <module>WebApi</module>
+        <module>AdminPanel</module>
     </modules>
 </project>

@@ -13,7 +13,7 @@ public class CourseEntity {
     private String name;
     private String shortName;
     private String details;
-    private Collection<ProfCourseEntity> profCoursesByCourseId;
+    private Collection<ProfCourseEntity> profCourses;
 
     @Id
     @Column(name = "CourseId")
@@ -80,12 +80,12 @@ public class CourseEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "courseByCourseId")
-    public Collection<ProfCourseEntity> getProfCoursesByCourseId() {
-        return profCoursesByCourseId;
+    @OneToMany(mappedBy = "course")
+    public Collection<ProfCourseEntity> getProfCourses() {
+        return profCourses;
     }
 
-    public void setProfCoursesByCourseId(Collection<ProfCourseEntity> profCoursesByCourseId) {
-        this.profCoursesByCourseId = profCoursesByCourseId;
+    public void setProfCourses(Collection<ProfCourseEntity> profCourses) {
+        this.profCourses = profCourses;
     }
 }
