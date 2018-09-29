@@ -12,6 +12,7 @@ public class GroupEntity {
     private int groupId;
     private String number;
     private int year;
+    private String series;
     private Collection<MessageEntity> messages;
     private Collection<ScheduleEntity> schedules;
     private Collection<StudentEntity> students;
@@ -46,6 +47,16 @@ public class GroupEntity {
         this.year = year;
     }
 
+    @Basic
+    @Column(name = "Series")
+    public String getSeries() {
+        return series;
+    }
+
+    public void setSeries(String series) {
+        this.series = series;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,6 +67,7 @@ public class GroupEntity {
         if (groupId != that.groupId) return false;
         if (year != that.year) return false;
         if (number != null ? !number.equals(that.number) : that.number != null) return false;
+        if (series != null ? !series.equals(that.series) : that.series != null) return false;
 
         return true;
     }
@@ -65,6 +77,7 @@ public class GroupEntity {
         int result = groupId;
         result = 31 * result + (number != null ? number.hashCode() : 0);
         result = 31 * result + year;
+        result = 31 * result + (series != null ? series.hashCode() : 0);
         return result;
     }
 

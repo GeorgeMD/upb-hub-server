@@ -9,7 +9,7 @@ public class GroupModel {
     private Integer groupId;
     private String number;
     private int year;
-
+//    private String series;
 
     public GroupModel() { }
 
@@ -18,6 +18,7 @@ public class GroupModel {
             this.groupId = entity.getGroupId();
             this.number = entity.getNumber();
             this.year = entity.getYear();
+//            this.series = entity.getSeries();
         }
     }
 
@@ -33,6 +34,10 @@ public class GroupModel {
         return number;
     }
 
+//    public String getSeries() {
+//        return series;
+//    }
+
     public void setNumber(String number) {
         this.number = number;
     }
@@ -41,11 +46,16 @@ public class GroupModel {
         this.year = year;
     }
 
+//    public void setSeries(String series) {
+//        this.series = series;
+//    }
+
     public GroupEntity toEntity() {
         GroupEntity groupEntity = new GroupEntity();
         groupEntity.setGroupId(groupId);
         groupEntity.setNumber(number);
         groupEntity.setYear(year);
+//        groupEntity.setSeries(series);
 
         return groupEntity;
     }

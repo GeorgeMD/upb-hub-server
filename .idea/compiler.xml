@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="AdminPanel" />
+        <module name="business-entities" />
+        <module name="BusinessLogic" />
+        <module name="BussinessLogic" />
+        <module name="DataAccess" />
+        <module name="WebApi" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin-panel" target="1.8" />
+      <module name="AdminPanel" target="1.8" />
+      <module name="business-entities" target="1.8" />
+      <module name="BusinessEntities" target="1.5" />
+      <module name="BusinessLogic" target="1.8" />
+      <module name="BussinessLogic" target="1.5" />
+      <module name="Common" target="1.8" />
+      <module name="DataAccess" target="1.8" />
+      <module name="OrarUpbServer" target="1.5" />
+      <module name="WebApi" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

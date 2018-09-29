@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AdminPanel/AdminPanel.iml" filepath="$PROJECT_DIR$/AdminPanel/AdminPanel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BusinessLogic/BusinessLogic.iml" filepath="$PROJECT_DIR$/BusinessLogic/BusinessLogic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataAccess/DataAccess.iml" filepath="$PROJECT_DIR$/DataAccess/DataAccess.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OrarUpbServer.iml" filepath="$PROJECT_DIR$/OrarUpbServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebApi/WebApi.iml" filepath="$PROJECT_DIR$/WebApi/WebApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BusinessEntities/business-entities.iml" filepath="$PROJECT_DIR$/BusinessEntities/business-entities.iml" />
+    </modules>
+  </component>
+</project>

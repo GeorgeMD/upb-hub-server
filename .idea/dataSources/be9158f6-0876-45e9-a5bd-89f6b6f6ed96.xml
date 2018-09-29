@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="upb_orar@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="upb_orar">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="pdf_library"/>
+    <schema id="6" parent="1" name="pdf_library_v2"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="sys"/>
+    <table id="9" parent="2" name="Course"/>
+    <table id="10" parent="2" name="Group"/>
+    <table id="11" parent="2" name="Location"/>
+    <table id="12" parent="2" name="Message"/>
+    <table id="13" parent="2" name="ProfCourse"/>
+    <table id="14" parent="2" name="Professor"/>
+    <table id="15" parent="2" name="Schedule"/>
+    <table id="16" parent="2" name="Settings"/>
+    <table id="17" parent="2" name="Student"/>
+    <column id="18" parent="9" name="CourseId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="19" parent="9" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="9" name="ShortName">
+      <Position>3</Position>
+      <DataType>varchar(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="9" name="Details">
+      <Position>4</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <index id="22" parent="9" name="Course_CourseId_uindex">
+      <ColNames>CourseId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="23" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CourseId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="24" parent="9" name="Course_CourseId_uindex">
+      <ColNames>CourseId</ColNames>
+      <UnderlyingIndexName>Course_CourseId_uindex</UnderlyingIndexName>
+    </key>
+    <column id="25" parent="10" name="GroupId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="10" name="Number">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="10" name="Year">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="10" name="Series">
+      <Position>4</Position>
+      <DataType>varchar(5)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;CD&apos;</DefaultExpression>
+    </column>
+    <index id="29" parent="10" name="Group_GroupId_uindex">
+      <ColNames>GroupId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>GroupId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="31" parent="10" name="Group_GroupId_uindex">
+      <ColNames>GroupId</ColNames>
+      <UnderlyingIndexName>Group_GroupId_uindex</UnderlyingIndexName>
+    </key>
+    <column id="32" parent="11" name="LocationId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="33" parent="11" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="11" name="Address">
+      <Position>3</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <index id="35" parent="11" name="Location_LocationId_uindex">
+      <ColNames>LocationId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="36" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>LocationId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="37" parent="11" name="Location_LocationId_uindex">
+      <ColNames>LocationId</ColNames>
+      <UnderlyingIndexName>Location_LocationId_uindex</UnderlyingIndexName>
+    </key>
+    <column id="38" parent="12" name="MessageId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="39" parent="12" name="StudentId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="40" parent="12" name="Timestamp">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="12" name="Text">
+      <Position>4</Position>
+      <DataType>longtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="12" name="GroupId">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="43" parent="12" name="Message_MessageId_uindex">
+      <ColNames>MessageId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="44" parent="12" name="MsgGroupId">
+      <ColNames>GroupId</ColNames>
+    </index>
+    <index id="45" parent="12" name="MsgStudentId">
+      <ColNames>StudentId</ColNames>
+    </index>
+    <key id="46" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>MessageId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="47" parent="12" name="Message_MessageId_uindex">
+      <ColNames>MessageId</ColNames>
+      <UnderlyingIndexName>Message_MessageId_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="48" parent="12" name="MsgStudentId">
+      <ColNames>StudentId</ColNames>
+      <RefSchemaName>upb_orar</RefSchemaName>
+      <RefTableName>Student</RefTableName>
+      <RefColNames>StudentId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <foreign-key id="49" parent="12" name="MsgGroupId">
+      <ColNames>GroupId</ColNames>
+      <RefSchemaName>upb_orar</RefSchemaName>
+      <RefTableName>Group</RefTableName>
+      <RefColNames>GroupId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="50" parent="13" name="ProfCourseId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="51" parent="13" name="ProfId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="13" name="CourseId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="53" parent="13" name="CourseId">
+      <ColNames>CourseId</ColNames>
+    </index>
+    <index id="54" parent="13" name="ProfCourse_ProfCourseId_uindex">
+      <ColNames>ProfCourseId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="55" parent="13" name="ProfId">
+      <ColNames>ProfId</ColNames>
+    </index>
+    <key id="56" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ProfCourseId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="57" parent="13" name="ProfCourse_ProfCourseId_uindex">
+      <ColNames>ProfCourseId</ColNames>
+      <UnderlyingIndexName>ProfCourse_ProfCourseId_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="58" parent="13" name="ProfId">
+      <ColNames>ProfId</ColNames>
+      <RefSchemaName>upb_orar</RefSchemaName>
+      <RefTableName>Professor</RefTableName>
+      <RefColNames>ProfessorId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="59" parent="13" name="CourseId">
+      <ColNames>CourseId</ColNames>
+      <RefSchemaName>upb_orar</RefSchemaName>
+      <RefTableName>Course</RefTableName>
+      <RefColNames>CourseId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="60" parent="14" name="ProfessorId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="61" parent="14" name="FirstName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="14" name="LastName">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="14" name="Email">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="14" name="Phone">
+      <Position>5</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="65" parent="14" name="Title">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="66" parent="14" name="Professor_ProfessorId_uindex">
+      <ColNames>ProfessorId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="67" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ProfessorId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="68" parent="14" name="Professor_ProfessorId_uindex">
+      <ColNames>ProfessorId</ColNames>
+      <UnderlyingIndexName>Professor_ProfessorId_uindex</UnderlyingIndexName>
+    </key>
+    <column id="69" parent="15" name="ScheduleId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="70" parent="15" name="GroupId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="15" name="ProfCourseId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="15" name="LocationId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="15" name="StartHour">
+      <Position>5</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="15" name="EndHour">
+      <Position>6</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="15" name="Details">
+      <Position>7</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="76" parent="15" name="Day">
+      <Position>8</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="15" name="WeekParity">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="78" parent="15" name="Semigroup">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="79" parent="15" name="Schedule_ScheduleId_uindex">
+      <ColNames>ScheduleId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="80" parent="15" name="SchGroupId">
+      <ColNames>GroupId</ColNames>
+    </index>
+    <index id="81" parent="15" name="SchLocationId">
+      <ColNames>LocationId</ColNames>
+    </index>
+    <index id="82" parent="15" name="SchProfCourseId">
+      <ColNames>ProfCourseId</ColNames>
+    </index>
+    <key id="83" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ScheduleId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="84" parent="15" name="Schedule_ScheduleId_uindex">
+      <ColNames>ScheduleId</ColNames>
+      <UnderlyingIndexName>Schedule_ScheduleId_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="85" parent="15" name="SchGroupId">
+      <ColNames>GroupId</ColNames>
+      <RefSchemaName>upb_orar</RefSchemaName>
+      <RefTableName>Group</RefTableName>
+      <RefColNames>GroupId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="86" parent="15" name="SchProfCourseId">
+      <ColNames>ProfCourseId</ColNames>
+      <RefSchemaName>upb_orar</RefSchemaName>
+      <RefTableName>ProfCourse</RefTableName>
+      <RefColNames>ProfCourseId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="87" parent="15" name="SchLocationId">
+      <ColNames>LocationId</ColNames>
+      <RefSchemaName>upb_orar</RefSchemaName>
+      <RefTableName>Location</RefTableName>
+      <RefColNames>LocationId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="88" parent="16" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="89" parent="16" name="Name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="16" name="Value">
+      <Position>3</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <index id="91" parent="16" name="Settings_Id_uindex">
+      <ColNames>Id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="92" parent="16" name="Settings_Name_uindex">
+      <ColNames>Name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="93" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="94" parent="16" name="Settings_Id_uindex">
+      <ColNames>Id</ColNames>
+      <UnderlyingIndexName>Settings_Id_uindex</UnderlyingIndexName>
+    </key>
+    <key id="95" parent="16" name="Settings_Name_uindex">
+      <ColNames>Name</ColNames>
+      <UnderlyingIndexName>Settings_Name_uindex</UnderlyingIndexName>
+    </key>
+    <column id="96" parent="17" name="StudentId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="97" parent="17" name="FirstName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="17" name="LastName">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="99" parent="17" name="Email">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="17" name="Phone">
+      <Position>5</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="101" parent="17" name="GroupId">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="17" name="Password">
+      <Position>7</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;123&apos;</DefaultExpression>
+    </column>
+    <index id="103" parent="17" name="Student_Email_uindex">
+      <ColNames>Email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="104" parent="17" name="Student_StudentId_uindex">
+      <ColNames>StudentId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="105" parent="17" name="StudGroupId">
+      <ColNames>GroupId</ColNames>
+    </index>
+    <key id="106" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>StudentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="107" parent="17" name="Student_StudentId_uindex">
+      <ColNames>StudentId</ColNames>
+      <UnderlyingIndexName>Student_StudentId_uindex</UnderlyingIndexName>
+    </key>
+    <key id="108" parent="17" name="Student_Email_uindex">
+      <ColNames>Email</ColNames>
+      <UnderlyingIndexName>Student_Email_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="109" parent="17" name="StudGroupId">
+      <ColNames>GroupId</ColNames>
+      <RefSchemaName>upb_orar</RefSchemaName>
+      <RefTableName>Group</RefTableName>
+      <RefColNames>GroupId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+  </database-model>
+</dataSource>
